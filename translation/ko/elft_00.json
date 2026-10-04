@@ -1,0 +1,22 @@
+{
+"0": "|M_BACK|시뮬 중지",
+"1": "|M_PREVSUBPAGE| 로스터 보기",
+"2": "|M_LINK| 선수 카드 보기",
+"3": "|M_SECONDARY| 버튼으로 플레이 삭제",
+"4": "|M_HELP| 메시지 작성",
+"5": "|M_NEXTPAGE| 다음 메시지 15개",
+"6": "|M_PREVPAGE| 이전 메시지 15개",
+"7": "|M_NEXTSUBPAGE| 새로고침",
+"8": "|M_NEXTPAGE| 다음 알림 15개",
+"9": "|M_PREVPAGE| 이전 알림 15개",
+"10": "메시지. |M_SECONDARY| 버튼: 리그 알림",
+"11": "리그 알림. |M_SECONDARY| 버튼: 메시지",
+"12": "|M_PRIMARY| 버튼으로 계속",
+"13": "|M_PRIMARY| 버튼으로 카탈로그 선택",
+"14": "|M_PRIMARY| 버튼으로 카탈로그 열기",
+"15": "|M_PRIMARY| 버튼으로 아이템 보기",
+"16": "|M_PRIMARY| 버튼으로 아이템 구입",
+"17": "|M_PRIMARY| 버튼으로 전광판 문구 편집",
+"18": "|M_PRIMARY| 트랙 추가",
+"19": "|M_SECONDARY| 트랙 삭제"
+}
