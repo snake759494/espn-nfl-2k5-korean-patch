@@ -7,3 +7,5 @@
 저장소 공개 자체가 모든 파일에 동일한 오픈소스 라이선스를 부여한다는 뜻은 아닙니다. 자체 제작 코드·번역 전체에 대한 별도 포괄 라이선스는 현재 지정하지 않았습니다.
 
 NanumSquare Neo 는 SIL Open Font License 1.1 을 따르며 전문을 `LICENSES/NanumSquareNeo-OFL-1.1.txt` 에 보존했습니다(`docs/FONT_CREDITS.md`). xdelta, PCSX2, Python 라이브러리(numpy, Pillow, capstone) 등 외부 도구는 각 프로젝트의 라이선스를 따르며 바이너리를 재배포하지 않습니다. 게임 코드의 디스어셈블 결과물은 넣지 않았고, 해석한 내용만 `docs/TECHNICAL.md` 에 정리했습니다.
+
+와이드 패치(`widescreen/*.pnach`)의 패치 코드는 PCSX2 패치 데이터베이스(PCSX2/pcsx2_patches)의 ESPN NFL 2K5 16:9 패치(제작 Arapapa)를 한글판 CRC 에 맞게 옮긴 것이며, 원 제작자와 PCSX2 프로젝트의 조건을 따릅니다.

@@ -1,0 +1,24 @@
+gametitle=ESPN NFL 2K5 (U)(SLUS-20919) 한글패치 v1.0
+
+// 16:9 와이드 (섹션 없이 두어 자동 적용)
+gsaspectratio=16:9
+author=Arapapa (PCSX2 패치 DB 원본, 한글판 CRC 로 옮김)
+description=한글판 실행 파일(CRC 64984F7C)용 16:9. 패치 대상 명령은 원본과 동일함을 확인.
+
+//Widescreen hack 16:9
+
+//Zoom (Gameplay)
+patch=1,EE,001ea324,word,3c013f40 //3c013f80
+
+//Zoom (Menu and Cutscene)
+patch=1,EE,0012cea8,word,3c013f40 //3c013f80
+
+//Y-Fov (All)
+patch=1,EE,00111e10,word,08030000
+
+patch=1,EE,000c0000,word,460039c3
+patch=1,EE,000c0004,word,3c013faa
+patch=1,EE,000c0008,word,3421aaab
+patch=1,EE,000c000c,word,4481f000
+patch=1,EE,000c0010,word,461e39c2
+patch=1,EE,000c0014,word,08044785
