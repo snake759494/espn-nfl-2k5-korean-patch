@@ -101,7 +101,10 @@ def patch_elf(elf, tr, allow=None):
             if v is not None: return v
         return g0(s)
     d = bytearray(elf); n = 0
+    rng = os.environ.get('KO_ELFRANGE')            # 진단용: 'lo,hi' 파일 오프셋 범위만 적용
+    lo, hi = (int(x, 16) for x in rng.split(',')) if rng else (0, 1 << 40)
     for o, s, mx in elf_strings(elf):
+        if not (lo <= o < hi): continue
         if allow and not allow(s): continue
         v = g(s)
         if v is None: continue
