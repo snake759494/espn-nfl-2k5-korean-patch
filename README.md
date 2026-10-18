@@ -5,9 +5,9 @@
 
 ## 적용 방법
 1. 원본 `ESPN NFL 2K5 (USA).iso` 를 준비합니다(아래 해시 확인).
-2. 릴리즈의 `ESPN_NFL_2K5_KO_v1.0.xdelta` 를 받아 xdelta3 로 적용합니다.
+2. 릴리즈의 `ESPN_NFL_2K5_KO_v1.1.xdelta` 를 받아 xdelta3 로 적용합니다.
 ```
-xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.0.xdelta "ESPN NFL 2K5 (USA) (Korean).iso"
+xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.1.xdelta "ESPN NFL 2K5 (USA) (Korean).iso"
 ```
 (Windows 는 xdeltaUI 등 GUI 도구도 가능)
 
@@ -16,9 +16,9 @@ xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.0.xdelta "ESPN NFL 2K5
 | 원본 ISO 크기 | 4,665,081,856 B |
 | 원본 ISO MD5 | `46ef5e7a2e155994e7c3e5627293e068` |
 | 원본 ISO SHA-256 | `f1300699ab445ad04b1e27f6e2df87f7a4d1d080d06c7d73499e1be9618a4ebe` |
-| xdelta SHA-256 | `231ce0be2ca08431b35d62af8e659467df26e20854acfae492e34bfa0b501656` |
+| xdelta SHA-256 | `22a3790fcec76af98a9fd4f1a43de1ecf18de06e9844cdc2454d8766b6612757` |
 | 결과 ISO 크기 | 4,772,483,072 B (DVD-9 크기라 실기기 굽기는 DL 매체 필요) |
-| 결과 ISO SHA-256 | `6296d59a8943f775905246c0960aafb0ebdf8fc8e91e09d06a586138486446ca` |
+| 결과 ISO SHA-256 | `f0c693a7e81318902c2cb72fe5bebce4124111efbd7dd8fce75a695e573a7c99` |
 
 이전 버전 패치로 만든 세이브스테이트는 쓰지 말고 새 ISO 로 처음부터 시작하세요.
 
@@ -32,11 +32,11 @@ xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.0.xdelta "ESPN NFL 2K5
 - 그대로 둔 것: 포지션 약어(QB, WR 등), 팀 코드, `49ers`, 곡 제목·아티스트, 저작권 표기, 그림으로 된 로고·글자, 실황 음성, 게임 내부 키로 쓰이는 단어, 메모리 카드 슬롯 이름(1바이트 변환을 거쳐 한글이 깨지므로)
 
 ## 16:9 와이드 패치 (PCSX2)
-한글패치는 실행 파일을 고치므로 PCSX2 가 게임을 구분하는 CRC 가 원본(42F9D5AF)과 달라집니다(**64984F7C**). 그래서 PCSX2 에 내장된 원본용 와이드 패치는 한글판에 자동 적용되지 않습니다.
-원본용 패치(PCSX2 패치 DB, 제작 Arapapa)를 한글판 CRC 로 옮긴 `widescreen/SLUS-20919_64984F7C.pnach` 를 함께 배포합니다(릴리즈에도 첨부).
+한글패치는 실행 파일을 고치므로 PCSX2 가 게임을 구분하는 CRC 가 원본(42F9D5AF)과 달라집니다(**649B4F71**). 그래서 PCSX2 에 내장된 원본용 와이드 패치는 한글판에 자동 적용되지 않습니다.
+원본용 패치(PCSX2 패치 DB, 제작 Arapapa)를 한글판 CRC 로 옮긴 `widescreen/SLUS-20919_649B4F71.pnach` 를 함께 배포합니다(릴리즈에도 첨부).
 
 1. PCSX2 메뉴 **도구 → 데이터 디렉터리 열기** 로 데이터 폴더를 엽니다(보통 `문서\PCSX2`, 휴대용 설치면 PCSX2 폴더).
-2. 그 안의 `patches` 폴더에 `SLUS-20919_64984F7C.pnach` 를 넣습니다(폴더가 없으면 만듭니다).
+2. 그 안의 `patches` 폴더에 `SLUS-20919_649B4F71.pnach` 를 넣습니다(폴더가 없으면 만듭니다).
 3. 한글판 ISO 를 실행하면 자동 적용되어 화면비가 16:9 로 바뀝니다. 설정에서 따로 켤 필요가 없습니다.
 4. 원래 4:3 으로 되돌리려면 그 파일을 지우면 됩니다.
 
