@@ -1,6 +1,6 @@
 gametitle=ESPN NFL 2K5 (U)(SLUS-20919) 한글패치 v1.1
 
-// 16:9 와이드 (섹션 없이 두어 자동 적용)
+[Widescreen 16:9]
 gsaspectratio=16:9
 author=Arapapa (PCSX2 패치 DB 원본, 한글판 CRC 로 옮김)
 description=한글판 실행 파일(CRC 649B4F71)용 16:9. 패치 대상 명령은 원본과 동일함을 확인.
