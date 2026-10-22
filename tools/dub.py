@@ -41,9 +41,15 @@ def fit(text, voice, n_samples, ref_rms):
     if fade: w[-fade:] *= np.linspace(1, 0, fade)
     out = np.zeros(n_samples, np.float32); out[:len(w)] = w[:n_samples]
     return np.clip(out * 32767, -32768, 32767).astype(np.int16)
-def load_script():
+STREAM_VOICE = {'misc': 'M4', 'pa': None}                  # pa(선수·관중 외침)는 클립 번호로 M2/M5 번갈아
+def voice_for(stream, i, spk=None):
+    if stream == 'comm': return VOICES[(spk or {}).get(i, 'A')]
+    return STREAM_VOICE[stream] or ('M2', 'M5')[i % 2]
+def load_script(stream='comm'):
+    """해설은 translation/dub/dub_*.json, 그 밖의 스트림은 translation/dub/<스트림>.json"""
     sc = {}
-    for fp in sorted(glob.glob(os.path.join(ROOT, 'translation', 'dub', '*.json'))):
+    pat = 'dub_*.json' if stream == 'comm' else stream + '.json'
+    for fp in sorted(glob.glob(os.path.join(ROOT, 'translation', 'dub', pat))):
         for k, v in json.load(open(fp, encoding='utf-8')).items():
             if v: sc[int(k)] = v
     return sc
@@ -62,15 +68,15 @@ def ko_num(text):
     """합성기가 아라비아 숫자를 제대로 못 읽어서 한자어 수사로 바꾼다(콤마 숫자 포함)."""
     import re
     return re.sub(r'\d[\d,]*', lambda m: _sino(int(m.group().replace(',', ''))), text)
-def clip_bytes(S, i, text, voice):
+def clip_bytes(S, i, text, voice, stream='comm'):
     """더빙된 클립 ADPCM 바이트(원본과 같은 길이). 결과는 캐시."""
     import hashlib
     text = ko_num(text)
-    raw = S.raw('comm', i)
-    key = hashlib.md5(('%d|%s|%s|%d' % (i, text, voice, len(raw))).encode()).hexdigest()
+    raw = S.raw(stream, i)
+    key = hashlib.md5((('%d|%s|%s|%d' % (i, text, voice, len(raw))) + ('' if stream == 'comm' else '|' + stream)).encode()).hexdigest()
     cp = os.path.join(CACHE, key + '.vag')
     if os.path.exists(cp): return open(cp, 'rb').read()
-    ref = S.pcm('comm', i).astype(np.float32) / 32768
+    ref = S.pcm(stream, i).astype(np.float32) / 32768
     ref_rms = float(np.sqrt(np.mean(ref ** 2))) if len(ref) else 0.1
     n = len(raw) // 16 * 28
     pcm = fit(text, voice, n, ref_rms)
@@ -79,14 +85,15 @@ def clip_bytes(S, i, text, voice):
     os.makedirs(CACHE, exist_ok=True); open(cp, 'wb').write(b)
     return b
 def patch_iso(f, isop, S=None):
-    """ISO 파일 핸들 f(쓰기)에 더빙 클립을 제자리로 덮어쓴다. 반환: 교체 수"""
+    """ISO 파일 핸들 f(쓰기)에 더빙 클립을 제자리로 덮어쓴다. 반환: 스트림별 교체 수"""
     import vc
-    S = S or speech.Speech(isop)
-    sc = load_script(); spk = load_speaker()
-    h, size, sec = S.ent['comm']; off = S.tables['comm'][1]
-    base = vc.iso_off(sec, isop, S.P)
-    n = 0
-    for i, text in sorted(sc.items()):
-        b = clip_bytes(S, i, text, VOICES[spk.get(i, 'A')])
-        f.seek(base + int(off[i])); f.write(b); n += 1
-    return n
+    S = S or speech.Speech(isop); spk = load_speaker(); res = {}
+    for stream in ('comm', 'misc', 'pa'):
+        sc = load_script(stream)
+        h, size, sec = S.ent[stream]; off = S.tables[stream][1]
+        base = vc.iso_off(sec, isop, S.P); n = 0
+        for i, text in sorted(sc.items()):
+            b = clip_bytes(S, i, text, voice_for(stream, i, spk), stream)
+            f.seek(base + int(off[i])); f.write(b); n += 1
+        res[stream] = n
+    return res

@@ -67,6 +67,8 @@ def main():
         if not os.environ.get('KO_NODUB'):
             import dub
             log('dub clips', dub.patch_iso(f, DST))
+            import viddub
+            log('dub videos', viddub.patch_iso(f, DST))
         # 덧붙이기
         sec4 = old_secs4
         for h in sorted(new):

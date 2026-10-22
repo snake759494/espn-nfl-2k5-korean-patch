@@ -3,7 +3,7 @@
 import os, sys, struct, numpy as np
 sys.path.insert(0, os.path.dirname(__file__)); import vc, iso
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-STREAMS = {'comm': 0x6421cfe6, 'names': 0x0c508bdb}
+STREAMS = {'comm': 0x6421cfe6, 'names': 0x0c508bdb, 'pa': 0x03d494df, 'misc': 0xaa692c32}
 FONT = 0x8ee9eeed
 RATE = 22050
 def find_tables(font, sizes):

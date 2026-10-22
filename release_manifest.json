@@ -1,8 +1,8 @@
 {
- "version": "v1.2",
- "asset": "ESPN_NFL_2K5_KO_v1.2.xdelta",
- "asset_size": 634422912,
- "asset_sha256": "ce8869db1aaab7b67755145259beca1083eabf736be479037c4a392871a061c3",
+ "version": "v1.3",
+ "asset": "ESPN_NFL_2K5_KO_v1.3.xdelta",
+ "asset_size": 829318589,
+ "asset_sha256": "4c7cfeab443a52942e19ff9627ec3436354d067e31d7be9b76c3bbcc5e1239e2",
  "widescreen_asset": "SLUS-20919_649B4F71.pnach",
  "widescreen_sha256": "4d07e9551425f236473be4d8a2fc36148616464876630b0b0be777831f1fd6b2",
  "source_iso": "ESPN NFL 2K5 (USA).iso",
@@ -10,7 +10,12 @@
  "source_iso_md5": "46ef5e7a2e155994e7c3e5627293e068",
  "source_iso_sha256": "f1300699ab445ad04b1e27f6e2df87f7a4d1d080d06c7d73499e1be9618a4ebe",
  "result_iso_size": 4772483072,
- "result_iso_sha256": "fc54329149fea5deb5730dc8435b2f9f9cabadb80110acfe89c8afeecc670e63",
+ "result_iso_sha256": "786831a735822ad5ddede19554c30c1c23e9bda85575bc3aa53e06e7fe8d4f7d",
  "result_elf_crc": "649B4F71",
- "dub_clips": 19768
+ "dub_clips": {
+  "comm": 29737,
+  "misc": 228,
+  "pa": 278,
+  "videos": 16
+ }
 }
