@@ -17,5 +17,11 @@
   "misc": 228,
   "pa": 278,
   "videos": 16
+ },
+ "original_voice": {
+  "asset": "ESPN_NFL_2K5_KO_v1.3_OriginalVoice.xdelta",
+  "asset_size": 57407905,
+  "asset_sha256": "900ddf0efe71a40bf54bd8375a550999b29091e434f2723674df1d829c792426",
+  "result_iso_sha256": "f0c693a7e81318902c2cb72fe5bebce4124111efbd7dd8fce75a695e573a7c99"
  }
 }

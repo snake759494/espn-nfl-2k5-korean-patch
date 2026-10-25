@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import iso, isoedit, vc, codepatch, kfont, ktext, lz
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 SRC = os.path.join(ROOT, 'ESPN NFL 2K5 (USA).iso')
-DST = os.path.join(ROOT, 'ESPN NFL 2K5 (USA) (Korean).iso')
+DST = os.environ.get('KO_DST') or os.path.join(ROOT, 'ESPN NFL 2K5 (USA) (Korean).iso')
 SEC = 2048
 def log(*a): print(time.strftime('%H:%M:%S'), *a, flush=True)
 

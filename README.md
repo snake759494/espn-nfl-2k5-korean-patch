@@ -4,10 +4,15 @@
 릴리즈에는 원본 디스크 이미지가 있어야만 쓸 수 있는 차분 파일(xdelta)만 첨부합니다.
 
 ## 적용 방법
+릴리즈에는 두 가지 버전이 있습니다. 하나만 골라 받으세요(실행 파일·CRC·와이드 패치·세이브는 공통).
+- `ESPN_NFL_2K5_KO_v1.3.xdelta` — **한국어 음성판**: 한글 자막·메뉴 + AI 한국어 더빙
+- `ESPN_NFL_2K5_KO_v1.3_OriginalVoice.xdelta` — **원본 음성판**: 한글 자막·메뉴, 음성은 원래 영어
+
 1. 원본 `ESPN NFL 2K5 (USA).iso` 를 준비합니다(아래 해시 확인).
-2. 릴리즈의 `ESPN_NFL_2K5_KO_v1.3.xdelta` 를 받아 xdelta3 로 적용합니다.
+2. 고른 xdelta 를 xdelta3 로 적용합니다.
 ```
 xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.3.xdelta "ESPN NFL 2K5 (USA) (Korean).iso"
+xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.3_OriginalVoice.xdelta "ESPN NFL 2K5 (USA) (Korean) (Original Voice).iso"
 ```
 (Windows 는 xdeltaUI 등 GUI 도구도 가능)
 
@@ -16,9 +21,11 @@ xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.3.xdelta "ESPN NFL 2K5
 | 원본 ISO 크기 | 4,665,081,856 B |
 | 원본 ISO MD5 | `46ef5e7a2e155994e7c3e5627293e068` |
 | 원본 ISO SHA-256 | `f1300699ab445ad04b1e27f6e2df87f7a4d1d080d06c7d73499e1be9618a4ebe` |
-| xdelta SHA-256 | `4c7cfeab443a52942e19ff9627ec3436354d067e31d7be9b76c3bbcc5e1239e2` |
+| 한국어 음성판 xdelta SHA-256 | `4c7cfeab443a52942e19ff9627ec3436354d067e31d7be9b76c3bbcc5e1239e2` |
 | 결과 ISO 크기 | 4,772,483,072 B (DVD-9 크기라 실기기 굽기는 DL 매체 필요) |
-| 결과 ISO SHA-256 | `786831a735822ad5ddede19554c30c1c23e9bda85575bc3aa53e06e7fe8d4f7d` |
+| 결과 ISO SHA-256 (한국어 음성판) | `786831a735822ad5ddede19554c30c1c23e9bda85575bc3aa53e06e7fe8d4f7d` |
+| 원본 음성판 xdelta SHA-256 | `900ddf0efe71a40bf54bd8375a550999b29091e434f2723674df1d829c792426` |
+| 결과 ISO SHA-256 (원본 음성판) | `f0c693a7e81318902c2cb72fe5bebce4124111efbd7dd8fce75a695e573a7c99` |
 
 이전 버전 패치로 만든 세이브스테이트는 쓰지 말고 새 ISO 로 처음부터 시작하세요.
 
@@ -58,7 +65,7 @@ xdelta3 -d -s "ESPN NFL 2K5 (USA).iso" ESPN_NFL_2K5_KO_v1.3.xdelta "ESPN NFL 2K5
   공용 한글 글꼴 리소스 `fontk`(512×512 4bpp, 128KB) 하나를 추가했습니다(경기 중 여유 메모리가 약 0.8MB라 글꼴마다 넣을 수 없음).
 - 실행 파일의 글자 폭·글자 그리기 루틴을 고쳐, 한글은 fontk 의 칸을 **그리는 글꼴의 대문자 높이·베이스라인에 맞춰 확대/축소**해 그립니다.
 - 작전명은 플레이북·실행 파일·튜토리얼·플레이 화면에 같은 번역을 넣어 게임 내부의 이름 검색이 어긋나지 않게 했습니다.
-- 자세한 내용: `docs/TECHNICAL.md`, 빌드: `docs/BUILD.md`, 변경 기록: `CHANGELOG.md`, 권리: `RIGHTS.md`
+- 자세한 내용: `docs/TECHNICAL.md`, 빌드: `docs/BUILD.md`(원본 음성판은 `KO_NODUB=1`, 출력 경로는 `KO_DST`), 변경 기록: `CHANGELOG.md`, 권리: `RIGHTS.md`
 
 ## 확인
 PCSX2 에서 메인 메뉴 → VIP 생성 → 빠른 경기 → 팀 선택 → 코치 대결 → 경기 진입(동전 던지기·선수 카드)까지 진행하며 한글 표시를 확인했고,
